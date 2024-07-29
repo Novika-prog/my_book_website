@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Buku</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Daftar Buku</h1>
+    </header>
+    <main>
+      <ul>
+        {% for book in books %}
+        <li>
+          <a href="{{ url_for('book_detail', book_id=book.id) }}"
+            >{{ book.title }}</a
+          >
+          oleh {{ book.author }}
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+  </body>
+</html>
